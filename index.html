@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CRUDS Operation made by MohamedZain" />
+    <!-- ------ # Css Files # ------ -->
+    <link rel="stylesheet" href="./src/css/globle.css" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <title>CRUDS Operation</title>
+  </head>
+  <body>
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Popup -->
+    <div class="popup" id="confirmPopup">
+      <button class="popup-close">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 512 512"
+        >
+          <line x1="368" y1="368" x2="144" y2="144" />
+          <line x1="368" y1="144" x2="144" y2="368" />
+        </svg>
+      </button>
+      <h3 class="popup-title">Confirm Message</h3>
+      <p class="popup-message"></p>
+      <div class="popup-actions">
+        <button class="close-btn">Close</button>
+        <button class="continue-btn">continue</button>
+      </div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <div class="flexCenter theme-toggle">
+      <img src="./assets/images/sun.svg" class="sun-icon" alt="Sun Icon" />
+
+      <img src="./assets/images/moon.svg" class="moon-icon" alt="Moon Icon" />
+    </div>
+
+    <main class="container">
+      <div class="title">
+        <h1>CRUDS</h1>
+        <p>PRODUCT MANAGEMENT SYSTEM</p>
+      </div>
+
+      <section>
+        <div class="inputs">
+          <input
+            type="text"
+            class="input cols-span-full title-input"
+            placeholder="title"
+          />
+          <input type="number" class="input price-input" placeholder="price" />
+          <input type="number" class="input taxes-input" placeholder="taxes" />
+          <input type="number" class="input ads-input" placeholder="ADS" />
+          <input
+            type="number"
+            class="input discount-input"
+            placeholder="discount"
+          />
+          <div class="total">Total: <span>0</span></div>
+          <input
+            type="number"
+            class="input cols-span-full quantity-input"
+            placeholder="quantity"
+          />
+          <input
+            type="text"
+            class="input cols-span-full category-input"
+            placeholder="category"
+          />
+          <button class="cols-span-full" id="create-btn">Create</button>
+          <div class="search-box cols-span-full">
+            <svg
+              stroke="currentColor"
+              fill="none"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              height="18px"
+              width="18px"
+              class="search-icon"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </svg>
+            <input
+              type="text"
+              class="input"
+              id="searchInput"
+              placeholder="Search for any product"
+            />
+          </div>
+          <div class="search-btn-box cols-span-full grid grid-cols-2 gap-15">
+            <button id="searchByTitle">Search by title</button>
+            <button id="searchByCategory">Search by category</button>
+          </div>
+          <button class="cols-span-full deleteAll-btn">Delate All</button>
+        </div>
+
+        <div class="output">
+          <table>
+            <thead class="thead">
+              <tr class="table-header">
+                <th>id</th>
+                <th>title</th>
+                <th>price</th>
+                <th>taxes</th>
+                <th>ads</th>
+                <th>discount</th>
+                <th>total</th>
+                <th>category</th>
+                <th>quantity</th>
+                <th>update</th>
+                <th>delete</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <!-- ------ # Js Files # ------ -->
+    <script src="src/js/app.js"></script>
+    <script src="src/js/utils.js"></script>
+    <script src="src/js/theme.js"></script>
+  </body>
+</html>

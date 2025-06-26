@@ -1,0 +1,266 @@
+/* ---------- { Toast Notifications } ---------- */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--popupColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 12px;
+  width: 460px;
+  padding: 15px;
+  z-index: 100;
+  box-shadow: var(--shadow-1);
+  display: none;
+
+  &.active {
+    display: block;
+  }
+
+  .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    fill: none;
+    stroke: var(--textColor);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 32px;
+    opacity: 0.5;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .popup-title {
+    color: var(--headingColor);
+    font-weight: normal;
+  }
+  .popup-message {
+    color: var(--textColor);
+  }
+
+  .popup-actions {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+
+    button {
+      padding: 8px 16px;
+      transition: 0.3s;
+      border-radius: 8px;
+    }
+
+    .continue-btn {
+      background-color: var(--primaryColor);
+      color: var(--on-primary);
+
+      &:hover {
+        filter: brightness(90%);
+      }
+    }
+
+    .close-btn {
+      color: var(--textColor);
+
+      &:hover {
+        background-color: var(--borderColor);
+      }
+    }
+  }
+}
+
+/* ---------- { Theme } ---------- */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background-color: var(--boxColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 6px;
+  cursor: pointer;
+  stroke: var(--headingColor);
+}
+
+/* ---------- { Title } ---------- */
+.title {
+  text-align: center;
+  margin-top: 20px;
+
+  h1 {
+    color: var(--headingColor);
+    letter-spacing: 10px;
+    font-size: 35px;
+  }
+
+  p {
+    color: var(--textColor);
+  }
+}
+
+/* ---------- { Inputs } ---------- */
+.input {
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+  /* background-color: var(--boxColor); */
+  border: 1px solid var(--borderColor);
+  border-radius: 8px;
+  color: var(--textColor);
+  padding: 0 10px;
+
+  &.error {
+    animation: error_input_animation 1s linear;
+  }
+
+  &:focus {
+    border-color: var(--active-borderColor);
+  }
+}
+
+@keyframes error_input_animation {
+  0% {
+    border-color: #ff27278f;
+  }
+  20% {
+    border-color: var(--borderColor);
+  }
+  40% {
+    border-color: #ff27278f;
+  }
+  60% {
+    border-color: var(--borderColor);
+  }
+  80% {
+    border-color: #ff27278f;
+  }
+  100% {
+    border-color: var(--borderColor);
+  }
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+
+  .total {
+    background-color: var(--primaryColor);
+    padding: 5px 10px;
+    color: var(--on-primary);
+    border-radius: 4px;
+    width: fit-content;
+    height: fit-content;
+
+    &.active {
+      background-color: rgb(25, 160, 133);
+      color: #fff;
+    }
+  }
+
+  button {
+    width: 100%;
+    height: 50px;
+    background-color: var(--btnColor);
+    /* background-color: #fff; */
+    color: var(--on-btnColor);
+    font-size: 16px;
+    border-radius: 8px;
+    transition: 0.3s;
+
+       &:hover {
+      background-color: var(--btnColor-alt);
+    }
+
+    &:active {
+      filter: brightness(80%);
+    }
+  }
+
+
+  .search-box {
+    position: relative;
+
+    .search-icon {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      stroke: var(--textColor);
+    }
+    input {
+      padding-left: 35px;
+    }
+  }
+
+  .deleteAll-btn {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 724px) {
+  .inputs,
+  .search-btn-box {
+    grid-template-columns: 100%;
+  }
+}
+
+/* ---------- { Output } ---------- */
+.output {
+  max-width: 100%;
+  margin: 20px 0;
+  overflow: auto;
+
+  table {
+    width: 100%;
+    min-width: 1100px;
+    text-align: center;
+  }
+
+  .table-header {
+    th {
+      color: var(--headingColor);
+      font-weight: normal;
+      padding: 10px 0;
+    }
+  }
+
+  #tbody {
+    margin-top: 110px;
+    .product-details {
+      td {
+        padding: 10px 0;
+        color: var(--textColor);
+
+        button {
+          width: 80%;
+          height: 40px;
+          color: var(--textColor);
+          font-size: 14px;
+          border-bottom: 1px solid transparent;
+          transition: 0.3s ease;
+
+          &:hover {
+            filter: brightness(0.9);
+            border-color: var(--borderColor);
+          }
+
+          &:active {
+            filter: brightness(0.8);
+          }
+        }
+      }
+    }
+  }
+}
