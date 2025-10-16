@@ -21,9 +21,20 @@ A simple web application to perform **Create, Read, Update, Delete, and Search (
 
 ```
 CRUDS/
+├── assets/
+│   ├── font[...]
+│   └── images[...]
+├── src/
+│   ├── css/
+│   │   ├── globle.css
+│   │   ├── style.css
+│   │   └── developerInfo.css
+│   └── js/
+│       ├── app.js
+│       ├── developerInfo.js
+│       ├── theme.js
+│       └── utils.js
 ├── index.html
-├── style.css
-├── main.js
 ├── README.md
 ```
 
