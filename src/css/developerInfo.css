@@ -1,0 +1,42 @@
+/* Dev Info  */
+
+#devInfo {
+	.popup-message {
+		margin-top: 15px;
+		margin-bottom: 10px;
+	}
+
+	.social-list {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		margin-bottom: 15px;
+
+		.socialLink-item {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 40px;
+			height: 40px;
+			border-radius: 8px;
+			background-color: var(--blueColor);
+
+			&.facebook {
+				background-color: #3763d2;
+			}
+
+			&.github {
+				background-color: #272727;
+			}
+
+			&.linkedin {
+				background-color: #4848ff;
+			}
+
+			&.instagram {
+				background-color: #f8468d;
+			}
+
+		}
+	}
+}

@@ -123,7 +123,9 @@ const showProducts = () => {
       `;
         });
 
-        deleteAllBtn.classList.add("active");
+        if (products.length >= 2) {
+            deleteAllBtn.classList.add("active");
+        }
         thead.classList.remove("hidden");
     } else {
         deleteAllBtn.classList.remove("active");
@@ -201,44 +203,51 @@ const searchHandler = (searchType) => {
 // Search For Products
 const searchForProducts = (searchType) => {
     searchInput.addEventListener("keyup", () => {
+        if (products.length === 0) return;
+
         let myProducts = "";
 
         products.forEach((product, index) => {
-            if (
-                searchType === "title"
-                    ? product.title.includes(searchInput.value.toLowerCase())
-                    : product.category.includes(searchInput.value.toLowerCase())
-            ) {
+            if ((searchType === "title")
+                ? product.title.includes(searchInput.value.toLowerCase())
+                : product.category.includes(searchInput.value.toLowerCase())) {
+
+                document.querySelector(".table-header").classList.remove("hidden");
+
                 myProducts += `
-        <tr class="product-details">
-        <td>${index + 1}</td>
-        <td>${product.title}</td>
-        <td>${product.price}</td>
-        <td>${product.taxes}</td>
-        <td>${product.ads}</td>
-        <td>${product.discount}</td>
-        <td>${product.total}</td>
-        <td>${product.category}</td>
-        <td>${product.quantity}</td>
-        <td>
-          <button onCLick="updateHandler(${index})" id="update-btn">update</button>
-        </td>
-        <td>
-          <button onCLick="deleteProduct(${index})" id="delete-btn">delete</button>
-        </td>
-      </tr>
-        `;
+                    <tr class="product-details">
+                        <td>${index + 1}</td>
+                        <td>${product.title}</td>
+                        <td>${product.price}</td>
+                        <td>${product.taxes}</td>
+                        <td>${product.ads}</td>
+                        <td>${product.discount}</td>
+                        <td>${product.total}</td>
+                        <td>${product.category}</td>
+                        <td>${product.quantity}</td>
+                        <td>
+                        <button onCLick="updateHandler(${index})" id="update-btn">update</button>
+                    </td>
+                    <td>
+                        <button onCLick="deleteProduct(${index})" id="delete-btn">delete</button>
+                    </td>
+                    </tr>
+                `;
             }
         });
 
+        if (myProducts === "") {
+            document.querySelector(".table-header").classList.add("hidden");
+            myProducts = "Not found - please try anather key"
+        }
+
         document.getElementById("tbody").innerHTML = myProducts;
-        deleteAllBtn.classList.add("active");
+        if (products.length >= 2) {
+            deleteAllBtn.classList.add("active");
+        }
     });
 };
 searchForProducts("title");
 
-const searchByTitle = document.getElementById("searchByTitle");
-const searchByCategory = document.getElementById("searchByCategory");
-
-searchByTitle?.addEventListener("click", () => searchHandler("title"));
-searchByCategory?.addEventListener("click", () => searchHandler("category"));
+document.getElementById("searchByTitle")?.addEventListener("click", () => searchHandler("title"));
+document.getElementById("searchByCategory")?.addEventListener("click", () => searchHandler("category"));

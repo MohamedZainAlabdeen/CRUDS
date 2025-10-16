@@ -4,6 +4,7 @@ A simple web application to perform **Create, Read, Update, Delete, and Search (
 
 ## Features
 
+- dark & light theme
 - Add new items
 - View a list of items
 - Edit existing items

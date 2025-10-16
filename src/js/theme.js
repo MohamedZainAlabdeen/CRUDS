@@ -21,7 +21,7 @@ document.documentElement.setAttribute("data-theme", initialTheme);
 
 // Attach ToggleTheme to theme button click event
 window.addEventListener("DOMContentLoaded", function () {
-    const $themeBtn = document.querySelector(".theme-toggle");
+    const $themeBtn = document.querySelector("#themeToggle");
 
     if ($themeBtn) $themeBtn.addEventListener("click", toggleTheme);
 });
